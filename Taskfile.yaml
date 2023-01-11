@@ -1,0 +1,22 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GREETING: Hello, World!
+  APP_NAME: scaffold-gen
+silent: true
+
+tasks:
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}} ./cmd/scaffold
+
+  test:
+    cmds:
+      - go test -v ./...
+
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
